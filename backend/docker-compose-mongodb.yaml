@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+# Optional: Seed initial data by uncommenting the next line
+# - ./mongo-init:/docker-entrypoint-initdb.d
+
+volumes:
+  mongodb_data:
